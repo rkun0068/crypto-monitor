@@ -76,6 +76,18 @@ class USDSMFuture:
             funding_rate_diff.append(float(funding_rate[i]["fundingRate"]) - float(funding_rate[i-1]["fundingRate"]))
         return funding_rate_diff
 
+    """
+    获取标记价格 https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Mark-Price
+    """
+    def mark_klines(self, symbol: str,limit:int=96,interval:str="15m"):
+        endpoint = f"{self.base_endpoint}/fapi/v1/markPriceKlines"
+        params = {
+            "symbol": symbol,
+            "limit": limit,
+            "interval": interval
+        }
+        response_json = requests.get(endpoint, params=params).json()
+        return response_json
 
 
 
