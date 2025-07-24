@@ -13,7 +13,7 @@ st.title("📊 币种信息汇总")
 # 初始化
 spot_api = Spot()
 usds_m_future_api = USDSMFuture()
-symbol = "SPKUSDT"  
+symbol = ""  
 
 #现货24小时资金流入
 net_capital_in = spot_api.net_capital_in(symbol)
